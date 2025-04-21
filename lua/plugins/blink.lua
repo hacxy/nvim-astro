@@ -31,7 +31,13 @@ return {
           ["<S-K>"] = { "scroll_documentation_up", "fallback" },
           ["<S-J>"] = { "scroll_documentation_down", "fallback" },
         },
-
+        cmdline = {
+          completion = { ghost_text = { enabled = false } },
+          keymap = {
+            ["<C-J>"] = { "select_next", "fallback" },
+            ["<C-K>"] = { "select_prev", "fallback" },
+          },
+        },
         completion = {
           list = { selection = { preselect = true, auto_insert = false } },
         },
