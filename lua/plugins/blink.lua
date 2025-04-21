@@ -1,9 +1,3 @@
--- return { -- override blink.cmp plugin
---   "Saghen/blink.cmp",
---   opts = {
---   },
--- }
-
 return {
   "moyiz/blink-emoji.nvim",
   lazy = true,
@@ -40,6 +34,15 @@ return {
         },
         completion = {
           list = { selection = { preselect = true, auto_insert = false } },
+          menu = {
+            auto_show = true, -- 自动显示补全菜单
+          },
+          trigger = {
+            show_on_keyword = true, -- 根据关键字触发
+            show_on_insert_on_trigger_character = false, -- 在进入插入模式和特定字符触发
+            show_on_trigger_character = false,
+            -- show_on_accept_on_trigger_character = false,
+          },
         },
       },
     },
