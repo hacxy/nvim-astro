@@ -45,10 +45,13 @@ return {
             auto_show = true, -- 自动显示补全菜单
           },
           trigger = {
-            show_on_keyword = true, -- 根据关键字触发
-            show_on_insert_on_trigger_character = true,
-            show_on_trigger_character = false,
-            -- show_on_accept_on_trigger_character = false,
+            -- prefetch_on_insert = true,
+            -- show_in_snippet = true,
+            -- show_on_keyword = true, -- 根据关键字触发
+            -- -- show_on_insert_on_trigger_character = true,
+            -- -- show_on_trigger_character = false,
+            -- show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+            show_on_insert_on_trigger_character = false,
           },
           accept = {
             auto_brackets = {
