@@ -18,16 +18,15 @@ return {
               score_offset = -1,
             },
           },
-
-          -- transform_items = function(_, items)
-          --   return vim.tbl_filter(
-          --     function(item) return item.kind ~= require("blink.cmp.types").CompletionItemKind.Snippet end,
-          --     items
-          --   )
-          -- end,
         },
         keymap = {
-          ["<Tab>"] = { "snippet_forward", "fallback" },
+          ["<Tab>"] = {
+            "snippet_forward",
+            function()
+              if vim.g.ai_accept then return vim.g.ai_accept() end
+            end,
+            "fallback",
+          },
           ["<C-D>"] = { "show", "show_documentation", "hide_documentation" },
           ["<S-K>"] = { "scroll_documentation_up", "fallback" },
           ["<S-J>"] = { "scroll_documentation_down", "fallback" },
@@ -45,12 +44,6 @@ return {
             auto_show = true, -- 自动显示补全菜单
           },
           trigger = {
-            -- prefetch_on_insert = true,
-            -- show_in_snippet = true,
-            -- show_on_keyword = true, -- 根据关键字触发
-            -- -- show_on_insert_on_trigger_character = true,
-            -- -- show_on_trigger_character = false,
-            -- show_on_blocked_trigger_characters = { " ", "\n", "\t" },
             show_on_insert_on_trigger_character = false,
           },
           accept = {

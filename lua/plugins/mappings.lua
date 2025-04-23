@@ -34,6 +34,7 @@ return {
         },
         t = {
           ["<C-_>"] = { "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
+          ["<Esc>"] = { [[<C-\><C-n>]] },
         },
         i = {
           ["<C-_>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
