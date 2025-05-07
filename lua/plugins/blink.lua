@@ -41,9 +41,11 @@ return {
         completion = {
           list = { selection = { preselect = true, auto_insert = false } },
           menu = {
-            auto_show = true, -- 自动显示补全菜单
+            auto_show = true,
           },
           trigger = {
+            show_on_keyword = true,
+            show_on_trigger_character = false,
             show_on_insert_on_trigger_character = false,
           },
           accept = {
