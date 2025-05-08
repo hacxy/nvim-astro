@@ -4,6 +4,24 @@ return {
   ---@type AstroCoreOpts
   opts = {
     autocmds = {
+      windowsAutoSwitchInputMethod = {
+        {
+          event = "InsertLeave",
+          desc = "Keep english",
+          callback = function()
+            local has_system_command = vim.fn.executable "D:\\tools\\im-select-mspy.exe" == 1
+            if has_system_command then os.execute "D:\\tools\\im-select-mspy.exe 英语模式" end
+          end,
+        },
+        {
+          event = "InsertEnter",
+          desc = "Keep english",
+          callback = function()
+            local has_system_command = vim.fn.executable "D:\\tools\\im-select-mspy.exe" == 1
+            if has_system_command then os.execute "D:\\tools\\im-select-mspy.exe 英语模式" end
+          end,
+        },
+      },
       autoSwithInputMethod = {
         {
           -- event is added here as a string or a list-like table of events
