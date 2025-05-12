@@ -1,10 +1,8 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
-      ensure_installed = {
-        "stylelint_lsp",
-      },
+      ensure_installed = { "stylelint-lsp" }, -- automatically install lsp
     },
   },
 }

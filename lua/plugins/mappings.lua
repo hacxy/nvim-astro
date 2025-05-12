@@ -12,29 +12,10 @@ return {
           ["<S-h>"] = { "<cmd>bp<cr>", desc = "Previous buffer" },
 
           ["<C-S>"] = { "<Cmd>silent! update! | redraw<CR>", desc = "Force write" },
-
-          -- Bookmark
-          ["<Leader>m"] = { desc = "♥ Bookmark" },
-
-          ["<Leader>ma"] = {
-            '<cmd>lua require("telescope").extensions.vim_bookmarks.all()<cr>',
-            desc = "View all bookmark",
-          },
-          ["<Leader>mm"] = {
-            "<cmd>BookmarkToggle<cr>",
-            desc = "Toggle bookmark",
-          },
-          ["<Leader>mi"] = {
-            "<cmd>BookmarkAnnotate<cr>",
-          },
-          ["ma"] = {
-            '<cmd>lua require("telescope").extensions.vim_bookmarks.all()<cr>',
-            desc = "View all bookmark",
-          },
         },
         t = {
           ["<C-_>"] = { "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
-          ["<Esc>"] = { [[<C-\><C-n>]] },
+          ["<Esc><Esc>"] = { [[<C-\><C-n>]] },
         },
         i = {
           ["<C-_>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
