@@ -17,6 +17,13 @@ return {
               min_keyword_length = 1,
               score_offset = -1,
             },
+
+            snippets = {
+              score_offset = 1000,
+            },
+            lsp = {
+              score_offset = 999,
+            },
           },
         },
         keymap = {
