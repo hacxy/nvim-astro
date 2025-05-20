@@ -6,6 +6,9 @@ return {
       "Saghen/blink.cmp",
       optional = true,
       opts = {
+        signature = {
+          enabled = true,
+        },
         sources = {
           -- enable the provider by default (automatically extends when merging tables)
           default = { "emoji" },
@@ -16,13 +19,6 @@ return {
               module = "blink-emoji",
               min_keyword_length = 1,
               score_offset = -1,
-            },
-
-            snippets = {
-              score_offset = 1000,
-            },
-            lsp = {
-              score_offset = 999,
             },
           },
         },
@@ -35,14 +31,15 @@ return {
             "fallback",
           },
           ["<C-D>"] = { "show", "show_documentation", "hide_documentation" },
-          ["<S-K>"] = { "scroll_documentation_up", "fallback" },
-          ["<S-J>"] = { "scroll_documentation_down", "fallback" },
+          ["<C-P>"] = { "scroll_documentation_up", "fallback" },
+          ["<C-N>"] = { "scroll_documentation_down", "fallback" },
         },
         cmdline = {
           completion = { ghost_text = { enabled = false } },
           keymap = {
             ["<C-J>"] = { "select_next", "fallback" },
             ["<C-K>"] = { "select_prev", "fallback" },
+            ["<C-F>"] = { "show_signature", "hide_signature", "fallback" },
           },
         },
         completion = {
@@ -59,6 +56,10 @@ return {
             auto_brackets = {
               enabled = false,
             },
+          },
+
+          documentation = {
+            auto_show = true,
           },
         },
       },
