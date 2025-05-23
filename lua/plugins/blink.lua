@@ -11,7 +11,8 @@ return {
         },
         sources = {
           -- enable the provider by default (automatically extends when merging tables)
-          default = { "emoji" },
+          -- default = { "emoji" },
+          default = { "lsp", "path", "snippets", "buffer" },
           providers = {
             -- Specific details depend on the blink source
             emoji = {
