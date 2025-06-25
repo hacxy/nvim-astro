@@ -4,6 +4,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.markdown" },
+  -- { import = "astrocommunity.pack.vue" },
 
   -- colorscheme
   { import = "astrocommunity.colorscheme.onedarkpro-nvim" },
