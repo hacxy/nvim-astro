@@ -1,12 +1,12 @@
 return {
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      options = {
-        opt = {
-          showtabline = 0,
-        },
-      },
-    },
-  },
+  -- {
+  --   "AstroNvim/astrocore",
+  --   opts = {
+  --     options = {
+  --       opt = {
+  --         showtabline = 0,
+  --       },
+  --     },
+  --   },
+  -- },
 }
