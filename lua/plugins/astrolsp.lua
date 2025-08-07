@@ -2,20 +2,47 @@
 return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
-  opts = {
-    servers = { "stylelint_lsp" },
-    ---@diagnostic disable: missing-fields
-    config = {
-      stylelint_lsp = {
-        settings = {
-          stylelintplus = {
-            autoFixOnSave = true,
-            autoFixOnFormat = true,
-            validateOnSave = true,
-          },
+
+  opts = function(_plugin, opts)
+    local prettier_configs = {
+      ".prettierrc",
+      ".prettierrc.json",
+      ".prettierrc.js",
+      ".prettierrc.cjs",
+      ".prettierrc.yaml",
+      ".prettierrc.yml",
+      ".prettierrc.toml",
+    }
+
+    local has_prettier_config = false
+    local project_root = vim.fn.getcwd()
+
+    for _, config_file in ipairs(prettier_configs) do
+      if vim.fn.filereadable(project_root .. "/" .. config_file) == 1 then
+        has_prettier_config = true
+        break
+      end
+    end
+    -- If package.json exists, check if it contains prettier config
+    if not has_prettier_config and vim.fn.filereadable(project_root .. "/package.json") == 1 then
+      local package_json = vim.fn.readfile(project_root .. "/package.json")
+      local package_content = table.concat(package_json, "\n")
+      if package_content:match '"prettier"' then has_prettier_config = true end
+    end
+
+    opts.config.stylelint_lsp = {
+      settings = {
+        stylelintplus = {
+          autoFixOnSave = true,
+          autoFixOnFormat = true,
+          validateOnSave = true,
         },
       },
-      eslint = {
+    }
+
+    -- Only add ESLint config if no Prettier config is found
+    if not has_prettier_config then
+      opts.config.eslint = {
         filetypes = {
           "javascript",
           "javascriptreact",
@@ -56,7 +83,7 @@ return {
             { rule = "*semi", severity = "on", fixable = true },
           },
         },
-      },
-    },
-  },
+      }
+    end
+  end,
 }
